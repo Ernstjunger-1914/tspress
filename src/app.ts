@@ -1,11 +1,20 @@
 import express from 'express';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
+const port = process.env.PORT || 3333;
 
-app.get('/', (req, res) => {
-    res.json({"status": "server is running"});
+const indexRouter = require('./routes/index');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/', indexRouter);
+
+app.listen(port, () => {
+    console.log(`server is running on port ${port}`);
 });
 
-app.listen(3333, () => {
-    console.log("server is running on port 3333");
-});
+module.exports = app;
