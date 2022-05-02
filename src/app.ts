@@ -15,6 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 
+/**
+ * 존재하지 않는 경로에 접근 시, 메인 페이지로 redirect.
+ */
+app.all('/*', (_, res) => {
+    res.redirect('/');
+});
+
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);
 });
