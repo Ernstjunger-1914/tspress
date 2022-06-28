@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import Log from './utils/log';
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ app.all('/*', (_, res) => {
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`);
+    Log.i(`server is running on port ${port}`);
 });
 
 module.exports = app;

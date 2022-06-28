@@ -1,6 +1,7 @@
 # dir
 /node_modules
 /dist
+/log
 
 # file
 .env
