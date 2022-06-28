@@ -18,7 +18,7 @@ class Logger {
     public static readonly MaxLogFiles: number = 100;
     public static readonly LogFileName: string = "React-App.log"
     public static readonly MaxLogFileNameLength: number = 25;
-    public static readonly LogPath: string = "../log";
+    public static readonly LogPath: string = "./log";
     public static readonly ProjectRootPath: string = path.join(__dirname, '..');
     public static readonly UseRelativePath: boolean = false;
     private readonly writer: winston.Logger;
