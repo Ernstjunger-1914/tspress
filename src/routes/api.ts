@@ -1,5 +1,4 @@
-import express, { Router } from 'express';
-import { RequestType } from 'type';
+import { Request, Response, NextFunction, Router } from 'express';
 
 const router: Router = Router();
 
@@ -7,8 +6,12 @@ const apiRouterPath = {
     main: '/'
 };
 
-router.get(apiRouterPath.main, ({ req, res, next }: RequestType) => {
-    res.json({ "path": "API" });
+router.get(apiRouterPath.main, (req: Request, res: Response, next: NextFunction) => {
+    res.json({
+        "hostname": req.hostname,
+        "path": req.path,
+        "method": req.method
+    });
 });
 
 export default router;
