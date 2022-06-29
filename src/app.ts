@@ -1,7 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import indexRouter from './routes/index';
-import apiRouter from './routes/api';
+import indexRouter from './routes/controllers/index';
+import apiRouter from './routes/controllers/api';
 import Log from './utils/log';
 
 dotenv.config();
