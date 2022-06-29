@@ -50,7 +50,7 @@ class Logger {
         return winston.createLogger({
             transports: [
                 new winston.transports.File({
-                    filename: path.join(Logger.LogPath, "./server.log"),
+                    filename: path.join(Logger.LogPath, "./tspress.log"),
                     level: Logger.LogLevel,
                     maxFiles: Logger.MaxLogFiles,
                     maxsize: Logger.MaxLogFileSize,
@@ -111,7 +111,7 @@ class Logger {
     private getLogString(args: any[]) {
         let resultString: string = "";
 
-        for(let i=0; i<args.length; i++) {
+        for(let i=1; i<args.length; i++) {
             if(typeof(args[i]) === 'object') {
                 resultString += JSON.stringify(args[i]) + "\t";
             } else {
@@ -122,17 +122,17 @@ class Logger {
     }
     
     private getStackInfo(stackIndex: number) {
-        let stackList = (new Error(undefined).stack?.split("\n").slice(3));
+        let stackList = (new Error(undefined)).stack?.split("\n").slice(3);
         let stackReg = /at\s+(.*)\s+\((.*):(\d*):(\d*)\)/gi;
         let stackReg2 = /at\s+()(.*):(\d*):(\d*)/gi;
-        let s = stackList?.[stackIndex] || stackList?.[0];
+        let stackListIndex = stackList?.[stackIndex] || stackList?.[0];
 
-        if(s === undefined) {
+        if(stackListIndex === undefined) {
             throw new Error();
         }
 
-        s = s.toString();
-        let sp = stackReg.exec(s) || stackReg2.exec(s);
+        stackListIndex = stackListIndex.toString();
+        let sp = stackReg.exec(stackListIndex) || stackReg2.exec(stackListIndex);
 
         if(sp && sp.length === 5) {
             return {

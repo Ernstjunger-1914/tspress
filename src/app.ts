@@ -24,8 +24,7 @@ app.all('*', (_, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`server is running on port ${port}`);
-    Log.i(`server is running on port ${port}`);
+    Log.i(`Server is running on port ${port};`);
 });
 
 module.exports = app;
