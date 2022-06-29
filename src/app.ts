@@ -1,14 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import indexRouter from './routes/index';
+import apiRouter from './routes/api';
 import Log from './utils/log';
 
 dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3333;
-
-const indexRouter = require('./routes/index');
-const apiRouter = require('./routes/api');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

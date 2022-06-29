@@ -3,7 +3,7 @@ import moment from 'moment';
 import path from 'path';
 import winston from 'winston';
 
-const enum Log_Level_E {
+const enum Log_Level {
     Error = 'error',
     Warning = 'warning',
     Info = 'Info',
@@ -13,7 +13,7 @@ const enum Log_Level_E {
 
 class Logger {
 
-    public static readonly LogLevel: string = Log_Level_E.Debug;
+    public static readonly LogLevel: string = Log_Level.Debug;
     public static readonly MaxLogFileSize: number = 1024 * 1024 * 10;
     public static readonly MaxLogFiles: number = 100;
     public static readonly LogFileName: string = "React-App.log"
@@ -31,8 +31,8 @@ class Logger {
     private createLogDir() {
         try {
             mkdirp.sync(Logger.LogPath);
-        } catch(e) {
-            console.log(`Create log path FAILED; ${e}`);
+        } catch(err) {
+            console.log(`Create log path FAILED; ${err}`);
             return;
         }
         console.info(`Create log Directory SUCCESS`);

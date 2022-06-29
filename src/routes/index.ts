@@ -1,9 +1,14 @@
-import express from 'express';
+import { Router } from 'express';
+import { RequestType } from 'type';
 
-const router = express.Router();
+const router: Router = Router();
 
-router.get('/', (req, res, next) => {
+const indexRouterPath = {
+    main: '/'
+};
+
+router.get(indexRouterPath.main, ({ req, res, next }: RequestType) => {
     res.json({ "status": "server is running" });
 });
 
-module.exports = router;
+export default router;
