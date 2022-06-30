@@ -118,7 +118,7 @@ class Logger {
                 resultString += args[i] + "\t";
             }
         }
-        return args[0] + "\t" +resultString;
+        return args[0] + "\t" + resultString;
     }
     
     private getStackInfo(stackIndex: number) {

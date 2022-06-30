@@ -26,4 +26,4 @@ app.listen(port, () => {
     Log.i(`Server is running on port ${port};`);
 });
 
-module.exports = app;
+export default app;
