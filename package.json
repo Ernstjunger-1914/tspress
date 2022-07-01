@@ -13,6 +13,8 @@
     "url": "git+https://github.com/Ernstjunger-1914/tspress.git"
   },
   "keywords": [
+    "boilerplate",
+    "express",
     "typescript"
   ],
   "author": "Ernstjunger-1914",

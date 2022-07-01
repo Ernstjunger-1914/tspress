@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import { NextFunction, Response, Request } from 'express';
 import Log from '../../utils/log';
 
 export class indexRouterMethod {
