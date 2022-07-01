@@ -1,7 +1,7 @@
 import mkdirp from 'mkdirp';
 import moment from 'moment';
 import path from 'path';
-import winston from 'winston';
+import winston, { createLogger, format, transports } from 'winston';
 
 const enum Log_Level {
     Error = 'error',
@@ -47,19 +47,19 @@ class Logger {
             return this.writer;
         }
 
-        return winston.createLogger({
+        return createLogger({
             transports: [
-                new winston.transports.File({
+                new transports.File({
                     filename: path.join(Logger.LogPath, "./tspress.log"),
                     level: Logger.LogLevel,
                     maxFiles: Logger.MaxLogFiles,
                     maxsize: Logger.MaxLogFileSize,
-                    format: winston.format.printf(info => `${this.getTimeStampFormat()} [${info.level.toUpperCase()}] ${info.message}`),
+                    format: format.printf(info => `${this.getTimeStampFormat()} [${info.level.toUpperCase()}] ${info.message}`),
                     tailable: true
                 }),
-                new winston.transports.Console({
+                new transports.Console({
                     level: Logger.LogLevel,
-                    format: winston.format.printf(info => `${this.getTimeStampFormat()} [${info.level.toUpperCase()}] ${info.message}`)
+                    format: format.printf(info => `${this.getTimeStampFormat()} [${info.level.toUpperCase()}] ${info.message}`)
                 }),
             ]
         });

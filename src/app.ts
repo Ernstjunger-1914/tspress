@@ -23,7 +23,7 @@ app.all('*', (_, res) => {
 });
 
 app.listen(port, () => {
-    Log.i(`Server is running on port ${port};`);
+    Log.i(`Server is running on port ${port}`);
 });
 
 export default app;
