@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { apiLogic } from '../middlewares/apiMiddleware';
+import { apiRouterMethod } from '../middlewares/apiMiddleware';
 
 const router: Router = Router();
-const middleWare = new apiLogic();
+const middleWare = new apiRouterMethod();
 
 /**
  * @description path: /api

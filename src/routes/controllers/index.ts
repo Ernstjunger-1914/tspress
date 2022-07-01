@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import { indexLogic } from '../middlewares/indexMiddleware';
+import { indexRouterMethod } from '../middlewares/indexMiddleware';
 
 const router: Router = Router();
-const middleWare = new indexLogic();
+const middleWare = new indexRouterMethod();
 
 /**
  * @description path: /

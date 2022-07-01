@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import Log from '../../utils/log';
 
-export class apiLogic {
+export class apiRouterMethod {
     get = (req: Request, res: Response, next: NextFunction) => {
         res.json({
             "hostname": req.hostname,
