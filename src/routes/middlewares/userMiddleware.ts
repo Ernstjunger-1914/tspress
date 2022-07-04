@@ -6,6 +6,6 @@ export class userRouterMethod {
         res.json({
             "user_id": req.params.id
         });
-        Log.i(`${req.method} ${req.url} ${JSON.stringify(req.route)} \nuser_id: ${req.params.id}`);
+        Log.i(`${req.method} ${req.originalUrl} ${JSON.stringify(req.route)} \nuser_id: ${req.params.id}`);
     }
 }
