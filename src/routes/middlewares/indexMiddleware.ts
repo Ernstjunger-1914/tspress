@@ -3,7 +3,7 @@ import Log from '../../utils/log';
 
 export class indexRouterMethod {
     get = (req: Request, res: Response, next: NextFunction) => {
-        res.json({ "status": "server is running" }).status(200).send();
-        Log.i(`${req.method} ${req.originalUrl} ${JSON.stringify(req.route)} \nbody: ${JSON.stringify(req.body)}`);
+        res.status(200).json({ status: "server is running" }).send();
+        Log.i(`${req.method} ${req.originalUrl} ${res.statusCode} ${res.statusMessage} ${JSON.stringify(req.route)} \nbody: ${JSON.stringify(req.body)}`);
     }
 }

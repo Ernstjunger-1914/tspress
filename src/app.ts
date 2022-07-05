@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { NextFunction, Response, Request } from 'express';
 import dotenv from 'dotenv';
 import indexRouter from './routes/controllers/index';
 import apiRouter from './routes/controllers/api';
@@ -18,10 +18,14 @@ app.use('/api', apiRouter);
 app.use('/user', userRouter);
 
 /**
- * @description 존재하지 않는 경로에 접근 시, 메인 페이지로 redirect.
+ * @description 501 Error Handler
  */
-app.all('*', (_, res) => {
-    res.redirect('/');
+app.all('*', (req: Request, res: Response, next: NextFunction) => {
+    res.status(501).json({
+        status: 501,
+        Error: "This Method is Not Implemented"
+    }).send();
+    Log.e(`${req.method} ${req.originalUrl} ${res.statusCode} ${res.statusMessage}`);
 });
 
 app.listen(port, () => {
