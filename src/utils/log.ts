@@ -111,7 +111,7 @@ class Logger {
     private getLogString(args: any[]) {
         let resultString: string = "";
 
-        for(let i=1; i<args.length; i++) {
+        for(let i = 1; i < args.length; i++) {
             if(typeof(args[i]) === 'object') {
                 resultString += JSON.stringify(args[i]) + "\t";
             } else {
