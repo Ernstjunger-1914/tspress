@@ -16,7 +16,7 @@ class Logger {
     public static readonly LogLevel: string = Log_Level.Debug;
     public static readonly MaxLogFileSize: number = 1024 * 1024 * 10;
     public static readonly MaxLogFiles: number = 100;
-    public static readonly LogFileName: string = "React-App.log"
+    public static readonly LogFileName: string = "tspress.log"
     public static readonly MaxLogFileNameLength: number = 25;
     public static readonly LogPath: string = "./log";
     public static readonly ProjectRootPath: string = path.join(__dirname, '..');
@@ -50,7 +50,7 @@ class Logger {
         return createLogger({
             transports: [
                 new transports.File({
-                    filename: path.join(Logger.LogPath, "./tspress.log"),
+                    filename: path.join(Logger.LogPath, Logger.LogFileName),
                     level: Logger.LogLevel,
                     maxFiles: Logger.MaxLogFiles,
                     maxsize: Logger.MaxLogFileSize,
